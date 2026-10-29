@@ -5,9 +5,9 @@ Aplikasi Android berbasis **Jetpack Compose** yang mengimplementasikan arsitektu
 ---
 
 ## 👥 Anggota Kelompok (Kicau Mania)
-1. *Nama Mahasiswa 1* - NIM 24523179
-2. *Nama Mahasiswa 2* - NIM 24523246
-3. *Nama Mahasiswa 3* - NIM 24523008
+1. *Nadhif Pramudya* - NIM 24523179
+2. *Raihan Farabi Muzakki* - NIM 24523246
+3. *Hafidz Ridho Fajriz Riyanto* - NIM 24523008
 
 ---
 
