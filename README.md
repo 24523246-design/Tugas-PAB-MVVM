@@ -1,28 +1,27 @@
-<<<<<<< HEAD
 # Aplikasi Pencatatan Tugas Kuliah (Course Assignment Tracker)
 
-Aplikasi Android berbasis Jetpack Compose yang mengimplementasikan arsitektur **MVVM**, **UI State**, **StateFlow**, **Unidirectional Data Flow (UDF)**, dan **Adaptive Layout** untuk membantu mahasiswa mencatat dan mengelola tugas-tugas perkuliahan.
+Aplikasi Android berbasis **Jetpack Compose** yang mengimplementasikan arsitektur **MVVM**, **UI State**, **StateFlow**, **Unidirectional Data Flow (UDF)**, dan **Adaptive Layout** untuk membantu mahasiswa mencatat dan mengelola tugas-tugas perkuliahan.
 
 ---
 
-## 👥 Anggota Kelompok
-1. **Nama Mahasiswa 1** - NIM 123456781
-2. **Nama Mahasiswa 2** - NIM 123456782
-3. **Nama Mahasiswa 3** - NIM 123456783
+## 👥 Anggota Kelompok (Kicau Mania)
+1. *Nama Mahasiswa 1* - NIM 123456781
+2. *Nama Mahasiswa 2* - NIM 123456782
+3. *Nama Mahasiswa 3* - NIM 123456783
 
 ---
 
 ## 🎯 Masalah, Pengguna, dan Solusi
 * **Pengguna Sasaran:** Mahasiswa dan pelajar yang mengikuti berbagai mata kuliah.
-* **Masalah:** Mahasiswa sering kali kesulitan melacak deadline/tenggat waktu tugas perkuliahan, rincian instruksi tugas, serta status penyelesaian tugas dari banyak matakuliah.
+* **Masalah:** Mahasiswa sering kali kesulitan melacak *deadline*/tenggat waktu tugas perkuliahan, rincian instruksi tugas, serta status penyelesaian tugas dari banyak mata kuliah.
 * **Solusi:** Aplikasi pencatatan tugas kuliah yang responsif, dilengkapi fitur pencarian cepat, penandaan status tugas (selesai / belum selesai), penambahan tugas baru dengan validasi input, serta penghapusan tugas.
 
 ---
 
 ## ✨ Fitur Utama
-1. **Daftar & Pencarian Tugas Kuliah:** Memfilter tugas berdasarkan judul atau nama matakuliah secara real-time.
+1. **Daftar & Pencarian Tugas Kuliah:** Memfilter tugas berdasarkan judul atau nama mata kuliah secara *real-time*.
 2. **Penandaan Status Selesai / Belum:** Menandai tugas yang sudah selesai (*checkbox* atau tombol status) dengan efek coret (*strikethrough*).
-3. **Tambah Tugas & Validasi Input Kosong:** Form tambah tugas baru dengan validasi pesan error merah jika ada kolom yang belum diisi.
+3. **Tambah Tugas & Validasi Input Kosong:** Form tambah tugas baru dengan validasi pesan error jika ada kolom yang belum diisi.
 4. **Hapus Tugas:** Menghapus tugas dari daftar.
 5. **Adaptive Layout (Responsif):**
    * **Layar Sempit (HP Portrait):** Tampilan bertumpuk (*Single Pane*) dengan tombol kembali (*BackHandler*).
@@ -30,36 +29,19 @@ Aplikasi Android berbasis Jetpack Compose yang mengimplementasikan arsitektur **
 
 ---
 
-## 🏗️ Arsitektur & Contoh Alur UDF (Unidirectional Data Flow)
+## 📂 Gambaran Umum Struktur Paket `com.example.course`
 
-Aplikasi ini menggunakan pola arsitektur **MVVM (Model-View-ViewModel)** dengan alur data satu arah (**UDF**):
+Proyek ini menerapkan arsitektur MVVM (Model-View-ViewModel) dengan prinsip UDF (Unidirectional Data Flow) dan pemisahan tanggung jawab (*separation of concerns*).
 
 ```text
-[ User Action / Event ]
-          │
-          ▼
-    TaskViewModel ──( Memperbarui State )──► _uiState (MutableStateFlow)
-          ▲                                         │
-          │                                         ▼
-          └─────── UI (collectAsStateWithLifecycle) ◄─┘
-```
-
-### Contoh Alur UDF: Penambahan Tugas Baru & Validasi Input
-1. **UI Event:** Pengguna menekan tombol "+ Tambah", mengisi Judul Tugas, Nama Matakuliah, Tenggat Waktu, dan Deskripsi, lalu menekan "Simpan".
-2. **ViewModel Action:** Fungsi `onAddTask()` di `TaskViewModel` dipanggil.
-3. **Validation & State Change:** `TaskViewModel` memeriksa apakah ada input yang kosong:
-   * **Jika Kosong:** ViewModel memperbarui `validationError = "Judul, matakuliah, tenggat, dan deskripsi wajib diisi!"` di `TaskUiState`.
-   * **Jika Valid:** ViewModel membuat `TaskData` baru, menambahkannya ke `allTasks`, mengosongkan form, menutup dialog, dan memperbarui `_uiState`.
-4. **UI Update:** Composable `TaskApp` menerima `TaskUiState` terbaru via `collectAsStateWithLifecycle()` dan memperbarui layar secara otomatis.
-
----
-
-## 🚀 Cara Menjalankan Aplikasi
-1. Clone repository ini dari GitHub.
-2. Buka proyek menggunakan **Android Studio (Ladybug / Koala / Versi Terbaru)**.
-3. Pastikan koneksi internet aktif untuk mengunduh dependensi Gradle.
-4. Jalankan aplikasi pada Emulator atau Perangkat Android fisik (Min SDK 24 / Android 7.0+).
-=======
-# Tugas-PAB-MVVM
-Kelompok Kicau Mania
->>>>>>> e848527fa025909558e8ef1dd69431ea6f3f84dd
+com.example.course/
+├── data/
+│   └── TaskData.kt          # [MODEL] Struktur data & data tiruan (mock data)
+├── ui/
+│   ├── TaskUiState.kt       # [UI STATE] Menyimpan state layar secara immutable
+│   ├── TaskViewModel.kt     # [VIEWMODEL] Logika bisnis & pengelolaan StateFlow
+│   └── theme/
+│       ├── Color.kt         # Warna tema Material 3
+│       ├── Theme.kt         # Konfigurasi MaterialTheme (Dark/Light mode)
+│       └── Type.kt          # Konfigurasi tipografi/font teks
+└── MainActivity.kt          # [VIEW / UI] Komponen Composable & Adaptive Layout
