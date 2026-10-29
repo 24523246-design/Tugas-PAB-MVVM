@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Aplikasi Pencatatan Tugas Kuliah (Course Assignment Tracker)
 
 Aplikasi Android berbasis Jetpack Compose yang mengimplementasikan arsitektur **MVVM**, **UI State**, **StateFlow**, **Unidirectional Data Flow (UDF)**, dan **Adaptive Layout** untuk membantu mahasiswa mencatat dan mengelola tugas-tugas perkuliahan.
@@ -58,3 +59,7 @@ Aplikasi ini menggunakan pola arsitektur **MVVM (Model-View-ViewModel)** dengan 
 2. Buka proyek menggunakan **Android Studio (Ladybug / Koala / Versi Terbaru)**.
 3. Pastikan koneksi internet aktif untuk mengunduh dependensi Gradle.
 4. Jalankan aplikasi pada Emulator atau Perangkat Android fisik (Min SDK 24 / Android 7.0+).
+=======
+# Tugas-PAB-MVVM
+Kelompok Kicau Mania
+>>>>>>> e848527fa025909558e8ef1dd69431ea6f3f84dd
